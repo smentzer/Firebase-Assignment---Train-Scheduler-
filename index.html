@@ -1,24 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Train Schedule</title>
-<!-- bootstrap -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-crossorigin="anonymous">
-<!--fonts-->
-<link href="https://fonts.googleapis.com/css?family=Marvel" rel="stylesheet">
-<!--Favicon-->
-<link rel="icon" type="image/ico" href="assets/favicon.ico">
-<!-- Reset stylesheet -->
-<link rel="stylesheet" type="text/css" href="reset.css">
-<!-- My Stylesheet -->
-<link rel="stylesheet" type="text/css" href="style.css">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <!--fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
+    <!--Favicon-->
+    <link rel="icon" type="image/ico" href="assets/fav.ico">
+    <!-- Reset stylesheet -->
+    <link rel="stylesheet" type="text/css" href="assets/reset.css">
+    <!-- My Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
+    <!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
 </head>
+
 <body>
-    
+
+
+
+    <div class="container">
+     
+        <div class="jumbotron">
+            <h1 class="text-center">Train Schedule</h1>
+            <h3 class="text-center">I choo choo choose you</h3>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title current"><strong>Current Train Schedule</strong></h3>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-hover" id='trainTable'>
+                            <thead>
+                                <tr>
+                                    <th>Train Name</th>
+                                    <th>Destination</th>
+                                    <th>Next Arrival</th>
+                                    <th>Frequency(minutes)</th>
+                                    <th>Minutes Away</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Add Trains  -->
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title add"><strong>Add Trains</strong></h3>
+                    </div>
+                    <div class="panel-body">
+
+                        <!-- bootstrap Form -->
+                        <form>
+                            <div class="form-group">
+                                <label for="">Train Name</label>
+                                <input type="text" class="form-control" id="trainNameInput">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Destination</label>
+                                <input type="text" class="form-control" id="destinationInput">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">First Train Time (HH:mm)</label>
+                                <input type="text" class="form-control" id="timeInput">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="">Frequency(minutes)</label>
+                                <input type="text" class="form-control" id="frequencyInput">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" id="addTrainBtn">Submit</button>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
 
 
@@ -26,8 +99,11 @@ crossorigin="anonymous">
 
 
 
-     <!--javaScript-->
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-     <script type="text/javascript" src="train.js"></script>
+
+
+    <!--javaScript-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="train.js"></script>
 </body>
+
 </html>
